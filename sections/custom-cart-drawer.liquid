@@ -1,0 +1,43 @@
+<div id="customCartDrawer" class="drawer">
+  <div class="drawer-content">
+    <div class="closeCustomDrawerbtn">
+      <h2>Cart ({{ cart.item_count }})</h2>
+    </div>
+
+    {% if cart.item_count > 0 %}
+      <div class="drawer-items">
+        {% for item in cart.items %}
+          <div class="cart-item">
+            <img src="{{ item.image | image_url: width: 120 }}" alt="{{ item.product_title }}" width="100%" height="100%">
+            <div>
+              <h4>{{ item.product_title }}</h4>
+              {% unless item.variant_title == "Default Title" %}
+                <p>{{ item.variant_title }}</p>
+              {% endunless %}
+
+              <p>{{ item.final_line_price | money }}</p>
+
+              <form action="/cart/change" method="post">
+                <input type="hidden" name="id" value="{{ item.key }}">
+                <input type="number" name="quantity" value="{{ item.quantity }}" min="0">
+                <button type="submit">Update</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="custom-cart-footer">
+        <p>Total: {{ cart.total_price | money }}</p>
+
+        <form action="/cart/clear" method="post">
+          <button type="submit">Clear Cart</button>
+        </form>
+
+        <a href="/checkout">Checkout</a>
+      </div>
+    {% else %}
+      <p>Your cart is empty.</p>
+    {% endif %}
+  </div>
+</div>
