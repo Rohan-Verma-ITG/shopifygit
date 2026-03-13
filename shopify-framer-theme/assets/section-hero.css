@@ -1,0 +1,10 @@
+.hero { display: grid; gap: 2rem; align-items: center; }
+.hero__content { max-width: 42rem; }
+.hero__eyebrow { text-transform: uppercase; letter-spacing: .08em; color: var(--color-muted); }
+.hero__title { margin: .5rem 0 1rem; font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1.05; }
+.hero__text { margin: 0 0 1.5rem; color: var(--color-muted); font-size: 1.05rem; }
+.hero__media img { border-radius: var(--radius); aspect-ratio: 4/5; object-fit: cover; width: 100%; }
+@media (min-width: 768px) { .hero { grid-template-columns: 1fr 1fr; } }
+
+.hero--reverse .hero__content { order: 2; }
+.hero--reverse .hero__media { order: 1; }

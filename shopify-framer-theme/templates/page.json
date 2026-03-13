@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": {"type": "image-with-text", "settings": {}},
+    "faq": {"type": "faq", "settings": {}},
+    "cta": {"type": "call-to-action", "settings": {}}
+  },
+  "order": ["main", "faq", "cta"]
+}

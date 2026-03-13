@@ -1,0 +1,16 @@
+<section class="section hero section-{{ section.id }}" style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px;--bg:{{ section.settings.background_color }};--cw:{{ section.settings.container_width }}px;">
+  <div class="container hero{% if section.settings.image_position == 'left' %} hero--reverse{% endif %}">
+    <div class="hero__content" style="text-align:{{ section.settings.text_alignment }};">
+      <p class="hero__eyebrow">{{ section.settings.subheading }}</p>
+      <h1 class="hero__title">{{ section.settings.heading }}</h1>
+      <p class="hero__text">{{ section.settings.text }}</p>
+      {% render 'button', text: section.settings.button_text, link: section.settings.button_link %}
+    </div>
+    <div class="hero__media">
+      {% render 'responsive-image', image: section.settings.image, class: 'hero__image' %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Hero banner","settings":[{"type":"text","id":"heading","label":"Heading","default":"Build a high-converting Shopify storefront"},{"type":"text","id":"subheading","label":"Subheading","default":"Framer-inspired layout"},{"type":"textarea","id":"text","label":"Text","default":"Recreate polished landing pages with modular sections and a scalable design system."},{"type":"text","id":"button_text","label":"Button text","default":"Shop now"},{"type":"url","id":"button_link","label":"Button link"},{"type":"image_picker","id":"image","label":"Image"},{"type":"select","id":"image_position","label":"Image position","options":[{"value":"right","label":"Right"},{"value":"left","label":"Left"}],"default":"right"},{"type":"select","id":"text_alignment","label":"Text alignment","options":[{"value":"left","label":"Left"},{"value":"center","label":"Center"}],"default":"left"},{"type":"color","id":"background_color","label":"Background","default":"#ffffff"},{"type":"range","id":"container_width","label":"Container width","min":900,"max":1400,"step":20,"default":1200},{"type":"range","id":"padding_top","label":"Padding top","min":0,"max":160,"step":4,"default":64},{"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":160,"step":4,"default":64}],"presets":[{"name":"Hero banner"}]}
+{% endschema %}

@@ -1,0 +1,15 @@
+<footer class="section footer section-{{ section.id }}" style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px;--bg:{{ section.settings.background_color }};">
+  <div class="container">
+    <div class="multi-column__grid columns-{{ section.settings.columns }}">
+      {% for block in section.blocks %}
+        <div {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.title }}</h3>
+          <div>{{ block.settings.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</footer>
+{% schema %}
+{"name":"Footer","settings":[{"type":"range","id":"columns","label":"Grid columns","min":2,"max":4,"step":1,"default":4},{"type":"color","id":"background_color","label":"Background","default":"#0f0f0f"},{"type":"range","id":"padding_top","label":"Padding top","min":0,"max":160,"step":4,"default":48},{"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":160,"step":4,"default":48}],"blocks":[{"type":"text","name":"Text block","settings":[{"type":"text","id":"title","label":"Title"},{"type":"richtext","id":"text","label":"Text"}]}],"presets":[{"name":"Footer","blocks":[{"type":"text"},{"type":"text"},{"type":"text"},{"type":"text"}]}]}
+{% endschema %}
