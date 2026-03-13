@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}{% if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.pagination.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'section-hero.css' | asset_url | stylesheet_tag }}
+    {{ 'section-grid.css' | asset_url | stylesheet_tag }}
+    {{ 'section-slider.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body class="template-{{ template | split: '.' | first }}">
+    <a class="skip-link" href="#MainContent">Skip to content</a>
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+    {{ 'theme.js' | asset_url | script_tag }}
+    {{ 'slider.js' | asset_url | script_tag }}
+  </body>
+</html>

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {"type": "color", "id": "color_background", "label": "Background", "default": "#ffffff"},
+      {"type": "color", "id": "color_text", "label": "Text", "default": "#111111"},
+      {"type": "color", "id": "color_accent", "label": "Accent", "default": "#111111"},
+      {"type": "range", "id": "container_max", "label": "Default container width", "min": 960, "max": 1440, "step": 20, "default": 1200},
+      {"type": "checkbox", "id": "enable_animations", "label": "Enable animations", "default": true}
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+{% if heading != blank or subheading != blank %}
+  <header class="section-header section-header--{{ alignment | default: 'left' }}">
+    {% if subheading != blank %}
+      <p class="section-header__subheading">{{ subheading }}</p>
+    {% endif %}
+    {% if heading != blank %}
+      <h2 class="section-header__heading">{{ heading }}</h2>
+    {% endif %}
+  </header>
+{% endif %}

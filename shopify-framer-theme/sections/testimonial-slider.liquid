@@ -1,0 +1,23 @@
+<section class="section testimonial-slider section-{{ section.id }}" style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px;--bg:{{ section.settings.background_color }};">
+  <div class="container">
+    {% render 'section-header', heading: section.settings.heading, subheading: section.settings.subheading, alignment: section.settings.text_alignment %}
+    <div class="slider" data-slider data-autoplay="{{ section.settings.autoplay }}">
+      <div class="slider__track" data-slider-track>
+        {% for block in section.blocks %}
+          <blockquote class="slider__slide" {{ block.shopify_attributes }}>
+            {% render 'icon', icon: 'quote' %}
+            <p>{{ block.settings.quote }}</p>
+            <cite>{{ block.settings.author }}</cite>
+          </blockquote>
+        {% endfor %}
+      </div>
+      <div class="slider__controls">
+        <button class="slider__button" data-prev aria-label="Previous slide">←</button>
+        <button class="slider__button" data-next aria-label="Next slide">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Testimonial slider","settings":[{"type":"text","id":"heading","label":"Heading","default":"What customers say"},{"type":"text","id":"subheading","label":"Subheading"},{"type":"select","id":"text_alignment","label":"Text alignment","options":[{"value":"left","label":"Left"},{"value":"center","label":"Center"}],"default":"center"},{"type":"checkbox","id":"autoplay","label":"Autoplay toggle","default":true},{"type":"checkbox","id":"animation","label":"Animation toggle","default":true},{"type":"color","id":"background_color","label":"Background","default":"#ffffff"},{"type":"range","id":"padding_top","label":"Padding top","min":0,"max":160,"step":4,"default":56},{"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":160,"step":4,"default":56}],"blocks":[{"type":"testimonial","name":"Testimonial block","settings":[{"type":"textarea","id":"quote","label":"Quote"},{"type":"text","id":"author","label":"Author"}]}],"presets":[{"name":"Testimonial slider","blocks":[{"type":"testimonial"},{"type":"testimonial"},{"type":"testimonial"}]}]}
+{% endschema %}

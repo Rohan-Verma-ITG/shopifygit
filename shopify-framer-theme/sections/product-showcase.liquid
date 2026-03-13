@@ -1,0 +1,20 @@
+<section class="section product-showcase section-{{ section.id }}" style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px;--bg:{{ section.settings.background_color }};">
+  <div class="container">
+    {% render 'section-header', heading: section.settings.heading, subheading: section.settings.subheading, alignment: section.settings.text_alignment %}
+    <div class="custom-grid__items columns-{{ section.settings.columns }}">
+      {% for block in section.blocks %}
+        {% assign product = block.settings.product %}
+        {% if product != blank %}
+          <article class="grid-card" {{ block.shopify_attributes }}>
+            {% render 'responsive-image', image: product.featured_image %}
+            <h3 class="grid-card__title">{{ product.title }}</h3>
+            <p class="grid-card__text">{{ product.price | money }}</p>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Product showcase","settings":[{"type":"text","id":"heading","label":"Heading","default":"Best sellers"},{"type":"text","id":"subheading","label":"Subheading"},{"type":"select","id":"text_alignment","label":"Text alignment","options":[{"value":"left","label":"Left"},{"value":"center","label":"Center"}],"default":"left"},{"type":"range","id":"columns","label":"Grid columns","min":2,"max":4,"step":1,"default":3},{"type":"color","id":"background_color","label":"Background","default":"#ffffff"},{"type":"range","id":"padding_top","label":"Padding top","min":0,"max":160,"step":4,"default":56},{"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":160,"step":4,"default":56}],"blocks":[{"type":"product","name":"Product block","settings":[{"type":"product","id":"product","label":"Product"}]}],"presets":[{"name":"Product showcase","blocks":[{"type":"product"},{"type":"product"},{"type":"product"}]}]}
+{% endschema %}

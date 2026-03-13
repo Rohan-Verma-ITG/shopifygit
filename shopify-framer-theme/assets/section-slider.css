@@ -1,0 +1,7 @@
+.slider { position: relative; overflow: hidden; }
+.slider__track { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(80%, 1fr); gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; }
+.slider__slide { scroll-snap-align: start; background: #f8f8f8; border-radius: var(--radius); padding: 1.25rem; }
+.slider__controls { margin-top: 1rem; display: flex; gap: .5rem; }
+.slider__button { border: 0; border-radius: 999px; padding: .5rem .75rem; cursor: pointer; }
+@media (min-width: 768px) { .slider__track { grid-auto-columns: minmax(45%, 1fr); } }
+@media (min-width: 1200px) { .slider__track { grid-auto-columns: minmax(30%, 1fr); } }

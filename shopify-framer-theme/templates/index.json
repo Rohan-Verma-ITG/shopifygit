@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "hero": {"type": "hero-banner", "settings": {}},
+    "collections": {"type": "featured-collections", "settings": {}},
+    "image_text": {"type": "image-with-text", "settings": {}},
+    "products": {"type": "product-showcase", "settings": {}},
+    "testimonials": {"type": "testimonial-slider", "settings": {}},
+    "blog": {"type": "blog-preview", "settings": {}},
+    "newsletter": {"type": "newsletter", "settings": {}},
+    "faq": {"type": "faq", "settings": {}},
+    "custom_grid": {"type": "custom-grid", "settings": {}},
+    "multi": {"type": "multi-column", "settings": {}},
+    "cta": {"type": "call-to-action", "settings": {}},
+    "footer": {"type": "footer", "settings": {}}
+  },
+  "order": ["hero","collections","image_text","products","testimonials","blog","newsletter","faq","custom_grid","multi","cta","footer"]
+}

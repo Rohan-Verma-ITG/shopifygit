@@ -1,0 +1,14 @@
+<section class="section newsletter section-{{ section.id }}" style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px;--bg:{{ section.settings.background_color }};">
+  <div class="container" style="text-align:{{ section.settings.text_alignment }};">
+    {% render 'section-header', heading: section.settings.heading, subheading: section.settings.subheading, alignment: section.settings.text_alignment %}
+    {% form 'customer', class: 'newsletter__form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <label class="visually-hidden" for="NewsletterEmail-{{ section.id }}">Email</label>
+      <input id="NewsletterEmail-{{ section.id }}" type="email" name="contact[email]" placeholder="Email address" required>
+      <button class="btn btn--primary" type="submit">{{ section.settings.button_text }}</button>
+    {% endform %}
+  </div>
+</section>
+{% schema %}
+{"name":"Newsletter","settings":[{"type":"text","id":"heading","label":"Heading","default":"Join our newsletter"},{"type":"text","id":"subheading","label":"Subheading","default":"New drops and exclusive offers"},{"type":"text","id":"button_text","label":"Button text","default":"Subscribe"},{"type":"select","id":"text_alignment","label":"Text alignment","options":[{"value":"left","label":"Left"},{"value":"center","label":"Center"}],"default":"center"},{"type":"color","id":"background_color","label":"Background","default":"#f4f4f4"},{"type":"range","id":"padding_top","label":"Padding top","min":0,"max":160,"step":4,"default":56},{"type":"range","id":"padding_bottom","label":"Padding bottom","min":0,"max":160,"step":4,"default":56}],"presets":[{"name":"Newsletter"}]}
+{% endschema %}

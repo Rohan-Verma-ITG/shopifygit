@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "hero": {"type": "hero-banner", "settings": {}},
+    "showcase": {"type": "product-showcase", "settings": {}},
+    "testimonials": {"type": "testimonial-slider", "settings": {}},
+    "newsletter": {"type": "newsletter", "settings": {}}
+  },
+  "order": ["hero", "showcase", "testimonials", "newsletter"]
+}

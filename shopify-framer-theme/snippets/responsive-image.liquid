@@ -1,0 +1,15 @@
+{% liquid
+  assign image_obj = image
+  assign image_alt = alt | default: image_obj.alt | escape
+  assign image_width = width | default: 1200
+  assign image_sizes = sizes | default: '(min-width: 1200px) 1200px, (min-width: 768px) 80vw, 100vw'
+%}
+{% if image_obj != blank %}
+  {{ image_obj | image_url: width: image_width | image_tag:
+    loading: 'lazy',
+    widths: '320,480,640,768,960,1200,1600',
+    sizes: image_sizes,
+    alt: image_alt,
+    class: class
+  }}
+{% endif %}
